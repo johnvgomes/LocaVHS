@@ -6,6 +6,9 @@
 package View;
 
 import java.awt.Dimension;
+import View.FormClientePasso2;
+import View.FormMenu;
+import java.awt.Color;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
@@ -14,14 +17,24 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  */
 public class FormCliente extends javax.swing.JInternalFrame {
     
+    FormMenu telaPai = null;
+    
     /**
      * Creates new form Home
      */
-    public FormCliente() {
+    public FormCliente(FormMenu telaPai) {
         initComponents();
+        this.telaPai = telaPai;
+        
+       txtNome.setText("Nome");
+       lblNome.setVisible(false); 
+       txtSobrenome.setText("Sobrenome");
+       lblSobrenome.setVisible(false);
+    
+   
     }
 
-
+    FormClientePasso2 clientePasso2; 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,7 +46,38 @@ public class FormCliente extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jpTitulo = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        lblTituloForm3 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         lblTituloForm = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        pnpasso01 = new javax.swing.JPanel();
+        lblpasso01 = new javax.swing.JLabel();
+        pnpasso02 = new javax.swing.JPanel();
+        lblpasso02 = new javax.swing.JLabel();
+        pnpasso03 = new javax.swing.JPanel();
+        lblpasso03 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        btnAlterarImage = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jSeparator1 = new javax.swing.JSeparator();
+        lblDatanasc = new java.awt.Label();
+        jpTitulo1 = new javax.swing.JPanel();
+        lblTituloForm4 = new javax.swing.JLabel();
+        lblTituloForm2 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        txtNome = new javax.swing.JTextField();
+        txtSobrenome = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        lblSexo = new java.awt.Label();
+        jSeparator2 = new javax.swing.JSeparator();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        lblNome = new java.awt.Label();
+        lblSobrenome = new java.awt.Label();
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         setMinimumSize(new java.awt.Dimension(300, 80));
@@ -43,27 +87,316 @@ public class FormCliente extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jpTitulo.setBackground(new java.awt.Color(109, 127, 145));
+        jpTitulo.setBackground(new java.awt.Color(255, 255, 255));
         jpTitulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTituloForm3.setBackground(new java.awt.Color(109, 127, 145));
+        lblTituloForm3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        lblTituloForm3.setForeground(new java.awt.Color(255, 255, 255));
+        lblTituloForm3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTituloForm3.setText("CANCELAR");
+        jPanel3.add(lblTituloForm3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 60));
+
+        jpTitulo.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 60));
+
+        jPanel4.setBackground(new java.awt.Color(109, 127, 145));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTituloForm.setBackground(new java.awt.Color(109, 127, 145));
         lblTituloForm.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         lblTituloForm.setForeground(new java.awt.Color(255, 255, 255));
         lblTituloForm.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTituloForm.setText("FORMULARIO DO CLIENTE");
-        jpTitulo.add(lblTituloForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 60));
+        lblTituloForm.setText("Prosseguir");
+        lblTituloForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTituloFormMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblTituloFormMouseEntered(evt);
+            }
+        });
+        jPanel4.add(lblTituloForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 60));
 
-        jPanel1.add(jpTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 780, 60));
+        jpTitulo.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 220, 60));
+
+        jPanel1.add(jpTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 780, 60));
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        jLabel1.setText("Passo ");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 110, 40));
+
+        pnpasso01.setBackground(new java.awt.Color(48, 59, 70));
+        pnpasso01.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblpasso01.setForeground(new java.awt.Color(255, 255, 255));
+        lblpasso01.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblpasso01.setText("1");
+        pnpasso01.add(lblpasso01, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 25, 25));
+
+        jPanel1.add(pnpasso01, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 25, 25));
+
+        pnpasso02.setBackground(new java.awt.Color(109, 127, 145));
+        pnpasso02.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblpasso02.setBackground(new java.awt.Color(109, 127, 145));
+        lblpasso02.setForeground(new java.awt.Color(255, 255, 255));
+        lblpasso02.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblpasso02.setText("2");
+        pnpasso02.add(lblpasso02, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 25, 25));
+
+        jPanel1.add(pnpasso02, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 25, 25));
+
+        pnpasso03.setBackground(new java.awt.Color(109, 127, 145));
+        pnpasso03.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblpasso03.setForeground(new java.awt.Color(255, 255, 255));
+        lblpasso03.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblpasso03.setText("3");
+        pnpasso03.add(lblpasso03, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 25, 25));
+
+        jPanel1.add(pnpasso03, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, 25, 25));
+
+        jPanel2.setBackground(new java.awt.Color(226, 224, 224));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 120));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, 130, 120));
+
+        btnAlterarImage.setBackground(new java.awt.Color(109, 127, 145));
+        btnAlterarImage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Alterar Imagem");
+        btnAlterarImage.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 30));
+
+        jPanel1.add(btnAlterarImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 130, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, -1, -1));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 510, 380, 30));
+
+        jSeparator1.setForeground(new java.awt.Color(109, 127, 145));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 500, 380, 10));
+
+        lblDatanasc.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblDatanasc.setForeground(new java.awt.Color(109, 127, 145));
+        lblDatanasc.setText("Data de Nascimento");
+        jPanel1.add(lblDatanasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(608, 480, 130, -1));
+
+        jpTitulo1.setBackground(new java.awt.Color(109, 127, 145));
+        jpTitulo1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTituloForm4.setBackground(new java.awt.Color(109, 127, 145));
+        lblTituloForm4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        lblTituloForm4.setForeground(new java.awt.Color(255, 255, 255));
+        lblTituloForm4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTituloForm4.setText("FORMULARIO DO CLIENTE");
+        jpTitulo1.add(lblTituloForm4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 60));
+
+        jPanel1.add(jpTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 780, 60));
+
+        lblTituloForm2.setBackground(new java.awt.Color(109, 127, 145));
+        lblTituloForm2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        lblTituloForm2.setForeground(new java.awt.Color(255, 255, 255));
+        lblTituloForm2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTituloForm2.setText("CANCELAR");
+        jPanel1.add(lblTituloForm2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 60));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtNome.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtNome.setForeground(new java.awt.Color(109, 127, 145));
+        txtNome.setToolTipText("Nome");
+        txtNome.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNomeFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNomeFocusLost(evt);
+            }
+        });
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNomeKeyReleased(evt);
+            }
+        });
+        jPanel5.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 40));
+
+        txtSobrenome.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtSobrenome.setForeground(new java.awt.Color(109, 127, 145));
+        txtSobrenome.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSobrenomeFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSobrenomeFocusLost(evt);
+            }
+        });
+        txtSobrenome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSobrenomeActionPerformed(evt);
+            }
+        });
+        jPanel5.add(txtSobrenome, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 380, 40));
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 780, 40));
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblSexo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblSexo.setForeground(new java.awt.Color(109, 127, 145));
+        lblSexo.setText("Sexo");
+        jPanel6.add(lblSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 20));
+
+        jSeparator2.setForeground(new java.awt.Color(109, 127, 145));
+        jPanel6.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 380, 10));
+
+        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(109, 127, 145));
+        jRadioButton2.setText("Masculino");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
+
+        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButton1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(109, 127, 145));
+        jRadioButton1.setText("Feminino");
+        jPanel6.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 780, 70));
+
+        lblNome.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblNome.setForeground(new java.awt.Color(109, 127, 145));
+        lblNome.setText("Nome");
+        jPanel1.add(lblNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 40, 20));
+
+        lblSobrenome.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblSobrenome.setForeground(new java.awt.Color(109, 127, 145));
+        lblSobrenome.setText("Sobrenome");
+        jPanel1.add(lblSobrenome, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 400, 80, 20));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1230, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtSobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSobrenomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSobrenomeActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void lblTituloFormMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTituloFormMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblTituloFormMouseEntered
+
+    private void lblTituloFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTituloFormMouseClicked
+        // TODO add your handling code here:
+        
+        clientePasso2 = new FormClientePasso2(this.telaPai);
+        this.telaPai.Internal(clientePasso2);
+      
+    }//GEN-LAST:event_lblTituloFormMouseClicked
+
+    private void txtNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyReleased
+        // TODO add your handling code here:
+        
+
+        
+    }//GEN-LAST:event_txtNomeKeyReleased
+
+    private void txtNomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusGained
+        // TODO add your handling code here:
+         if (txtNome.getText().equals("Nome")) {
+            txtNome.setText("");
+            lblNome.setVisible(true);
+        }
+    }//GEN-LAST:event_txtNomeFocusGained
+
+    private void txtNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusLost
+        // TODO add your handling code here:
+
+ if (txtNome.getText().isEmpty()) {
+            txtNome.setText("Nome");
+            lblNome.setVisible(false);
+        }
+    }//GEN-LAST:event_txtNomeFocusLost
+
+    private void txtSobrenomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSobrenomeFocusGained
+        // TODO add your handling code here:
+           if (txtSobrenome.getText().equals("Sobrenome")) {
+            txtSobrenome.setText("");
+            lblSobrenome.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_txtSobrenomeFocusGained
+
+    private void txtSobrenomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSobrenomeFocusLost
+        // TODO add your handling code here:
+        if (txtSobrenome.getText().isEmpty()) {
+            txtSobrenome.setText("Sobrenome");
+            lblSobrenome.setVisible(false);
+        }
+        
+    }//GEN-LAST:event_txtSobrenomeFocusLost
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel btnAlterarImage;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel jpTitulo;
+    private javax.swing.JPanel jpTitulo1;
+    private java.awt.Label lblDatanasc;
+    private java.awt.Label lblNome;
+    private java.awt.Label lblSexo;
+    private java.awt.Label lblSobrenome;
     private javax.swing.JLabel lblTituloForm;
+    private javax.swing.JLabel lblTituloForm2;
+    private javax.swing.JLabel lblTituloForm3;
+    private javax.swing.JLabel lblTituloForm4;
+    private javax.swing.JLabel lblpasso01;
+    private javax.swing.JLabel lblpasso02;
+    private javax.swing.JLabel lblpasso03;
+    private javax.swing.JPanel pnpasso01;
+    private javax.swing.JPanel pnpasso02;
+    private javax.swing.JPanel pnpasso03;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtSobrenome;
     // End of variables declaration//GEN-END:variables
 }
