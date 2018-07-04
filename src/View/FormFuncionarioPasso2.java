@@ -18,7 +18,7 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  *
  * @author John Victor
  */
-public class FormClientePasso2 extends javax.swing.JInternalFrame {
+public class FormFuncionarioPasso2 extends javax.swing.JInternalFrame {
 
     boolean mensagemSucesso = false;
     boolean stateemail = false;
@@ -32,7 +32,7 @@ public class FormClientePasso2 extends javax.swing.JInternalFrame {
     /**
      * Creates new form Home
      */
-    public FormClientePasso2(FormMenu telaPai) {
+    public FormFuncionarioPasso2(FormMenu telaPai) {
         initComponents();
 
         this.telaPai = telaPai;
@@ -101,7 +101,7 @@ public class FormClientePasso2 extends javax.swing.JInternalFrame {
 
     }
 
-    FormClientePasso3 clientePasso3;
+    FormFuncionarioPasso3 funcionarioPasso3;
     FormHome home;
 
     /**
@@ -125,6 +125,8 @@ public class FormClientePasso2 extends javax.swing.JInternalFrame {
         lblpasso02 = new javax.swing.JLabel();
         pnpasso03 = new javax.swing.JPanel();
         lblpasso03 = new javax.swing.JLabel();
+        pnpasso3 = new javax.swing.JPanel();
+        lblpasso3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtemail = new javax.swing.JTextField();
         lblTituloForm2 = new javax.swing.JLabel();
@@ -186,7 +188,7 @@ public class FormClientePasso2 extends javax.swing.JInternalFrame {
 
         jpTitulo.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 220, 60));
 
-        jPanel1.add(jpTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 780, 60));
+        jPanel1.add(jpTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 560, 780, 60));
 
         pnpasso01.setBackground(new java.awt.Color(109, 127, 145));
         pnpasso01.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -218,6 +220,17 @@ public class FormClientePasso2 extends javax.swing.JInternalFrame {
         pnpasso03.add(lblpasso03, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 25, 25));
 
         jPanel1.add(pnpasso03, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 25, 25));
+
+        pnpasso3.setBackground(new java.awt.Color(109, 127, 145));
+        pnpasso3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblpasso3.setBackground(new java.awt.Color(109, 127, 145));
+        lblpasso3.setForeground(new java.awt.Color(255, 255, 255));
+        lblpasso3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblpasso3.setText("4");
+        pnpasso3.add(lblpasso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 25, 25));
+
+        jPanel1.add(pnpasso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 110, 25, 25));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, -1, -1));
 
         txtemail.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -349,7 +362,7 @@ public class FormClientePasso2 extends javax.swing.JInternalFrame {
         lblTituloForm4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         lblTituloForm4.setForeground(new java.awt.Color(255, 255, 255));
         lblTituloForm4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTituloForm4.setText("FORMULARIO DO CLIENTE");
+        lblTituloForm4.setText("FORMULARIO DO FUNCIONÁRIO");
         jpTitulo1.add(lblTituloForm4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 60));
 
         jPanel1.add(jpTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 780, 60));
@@ -358,7 +371,7 @@ public class FormClientePasso2 extends javax.swing.JInternalFrame {
         jLabel2.setText("Passo ");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 110, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1220, 640));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1230, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -436,7 +449,6 @@ public class FormClientePasso2 extends javax.swing.JInternalFrame {
     private void btnProsseguirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProsseguirMouseClicked
         // TODO add your handling code here:
 
-      
         campoMensagem.setVisible(false);
         lblMensagem.setVisible(false);
         mensagem = "";
@@ -466,15 +478,14 @@ public class FormClientePasso2 extends javax.swing.JInternalFrame {
             mensagem = "Telefone não pode ser vazio";
             mensagemSucesso = false;
             txttelefone.grabFocus();
-        }
-        else{
-              mensagemSucesso = true;
+        } else {
+            mensagemSucesso = true;
         }
 
         if (mensagemSucesso) {
 
-            clientePasso3 = new FormClientePasso3(this.telaPai);
-            this.telaPai.Internal(clientePasso3);
+            funcionarioPasso3 = new FormFuncionarioPasso3(this.telaPai);
+            this.telaPai.Internal(funcionarioPasso3);
         } else {
 
             campoMensagem.setBackground(new Color(255, 204, 204));
@@ -487,7 +498,8 @@ public class FormClientePasso2 extends javax.swing.JInternalFrame {
 
     private void btncancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelarMouseClicked
         // TODO add your handling code here:
-          dispose();
+
+        dispose();
 
         home = new FormHome();
         this.telaPai.Internal(home);
@@ -515,9 +527,11 @@ public class FormClientePasso2 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblpasso01;
     private javax.swing.JLabel lblpasso02;
     private javax.swing.JLabel lblpasso03;
+    private javax.swing.JLabel lblpasso3;
     private javax.swing.JPanel pnpasso01;
     private javax.swing.JPanel pnpasso02;
     private javax.swing.JPanel pnpasso03;
+    private javax.swing.JPanel pnpasso3;
     private javax.swing.JFormattedTextField txtcpf;
     private javax.swing.JTextField txtemail;
     private javax.swing.JFormattedTextField txtrg;

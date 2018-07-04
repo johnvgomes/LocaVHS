@@ -18,17 +18,18 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  *
  * @author John Victor
  */
-public class FormClientePasso3 extends javax.swing.JInternalFrame {
+public class FormFuncionarioPasso3 extends javax.swing.JInternalFrame {
 
     boolean mensagemSucesso = false;
     String mensagem = "";
     private String cep;
-    FormMenu telaPai = null;
 
+    
+    FormMenu telaPai = null;
     /**
      * Creates new form Home
      */
-    public FormClientePasso3(FormMenu telaPai) {
+    public FormFuncionarioPasso3(FormMenu telaPai) {
 
         initComponents();
 
@@ -115,7 +116,6 @@ public class FormClientePasso3 extends javax.swing.JInternalFrame {
             mensagem = "CEP VALIDO";
             lblMensagem.setText(mensagem);
             lblMensagem.setVisible(true);
-            mensagemSucesso = false;
             //caso haja problemas imprime as exce??es.
         } else {
             //JOptionPane.showMessageDialog(null, "Erro numero: " + webServiceCep.getResulCode());
@@ -126,12 +126,12 @@ public class FormClientePasso3 extends javax.swing.JInternalFrame {
             mensagem = "Ops! Não foi possível encontrar o CEP";
             lblMensagem.setText(mensagem);
             lblMensagem.setVisible(true);
-            mensagemSucesso = false;
 
         }
     }
-    FormHome home;
 
+    FormFuncionarioPasso4 funcionarioPasso4;
+    FormHome home;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -142,6 +142,8 @@ public class FormClientePasso3 extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        pnpasso3 = new javax.swing.JPanel();
+        lblpasso3 = new javax.swing.JLabel();
         jpTitulo = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btncancelar = new javax.swing.JLabel();
@@ -183,6 +185,17 @@ public class FormClientePasso3 extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        pnpasso3.setBackground(new java.awt.Color(109, 127, 145));
+        pnpasso3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblpasso3.setBackground(new java.awt.Color(109, 127, 145));
+        lblpasso3.setForeground(new java.awt.Color(255, 255, 255));
+        lblpasso3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblpasso3.setText("4");
+        pnpasso3.add(lblpasso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 25, 25));
+
+        jPanel1.add(pnpasso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 110, 25, 25));
+
         jpTitulo.setBackground(new java.awt.Color(255, 255, 255));
         jpTitulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -220,7 +233,7 @@ public class FormClientePasso3 extends javax.swing.JInternalFrame {
 
         jpTitulo.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 220, 60));
 
-        jPanel1.add(jpTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 780, 60));
+        jPanel1.add(jpTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 560, 780, 60));
 
         pnpasso01.setBackground(new java.awt.Color(109, 127, 145));
         pnpasso01.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -370,7 +383,7 @@ public class FormClientePasso3 extends javax.swing.JInternalFrame {
         lblTituloForm4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         lblTituloForm4.setForeground(new java.awt.Color(255, 255, 255));
         lblTituloForm4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTituloForm4.setText("FORMULARIO DO CLIENTE");
+        lblTituloForm4.setText("FORMULARIO DO FUNCIONÁRIO");
         jpTitulo1.add(lblTituloForm4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 60));
 
         jPanel1.add(jpTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 780, 60));
@@ -446,7 +459,6 @@ public class FormClientePasso3 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNumeroActionPerformed
 
     private void btnConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmarMouseClicked
-        // TODO add your handling code here:
 
         if (txtCEP.getText().equals("  .   -   ")) {
             mensagem = "CEP não pode ser vazio";
@@ -478,7 +490,8 @@ public class FormClientePasso3 extends javax.swing.JInternalFrame {
         }
         if (mensagemSucesso) {
 
-            JOptionPane.showMessageDialog(null, "vai malandra");
+            funcionarioPasso4 = new FormFuncionarioPasso4(this.telaPai);
+            this.telaPai.Internal(funcionarioPasso4);
 
         } else {
 
@@ -606,7 +619,7 @@ public class FormClientePasso3 extends javax.swing.JInternalFrame {
 
     private void btncancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelarMouseClicked
         // TODO add your handling code here:
-        dispose();
+           dispose();
 
         home = new FormHome();
         this.telaPai.Internal(home);
@@ -636,11 +649,13 @@ public class FormClientePasso3 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblpasso01;
     private javax.swing.JLabel lblpasso02;
     private javax.swing.JLabel lblpasso03;
+    private javax.swing.JLabel lblpasso3;
     private java.awt.Label lblrua;
     private java.awt.Label lbluf;
     private javax.swing.JPanel pnpasso01;
     private javax.swing.JPanel pnpasso02;
     private javax.swing.JPanel pnpasso03;
+    private javax.swing.JPanel pnpasso3;
     private javax.swing.JFormattedTextField txtBairro;
     private javax.swing.JFormattedTextField txtCEP;
     private javax.swing.JFormattedTextField txtCidade;

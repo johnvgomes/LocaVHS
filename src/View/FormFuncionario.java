@@ -22,7 +22,7 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  *
  * @author John Victor
  */
-public class FormCliente extends javax.swing.JInternalFrame {
+public class FormFuncionario extends javax.swing.JInternalFrame {
 
     boolean mensagemSucesso = false;
     String mensagem = "";
@@ -32,7 +32,7 @@ public class FormCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form Home
      */
-    public FormCliente(FormMenu telaPai) {
+    public FormFuncionario(FormMenu telaPai) {
         initComponents();
         this.telaPai = telaPai;
 
@@ -45,8 +45,9 @@ public class FormCliente extends javax.swing.JInternalFrame {
 
     }
 
-    FormClientePasso2 clientePasso2;
+    FormFuncionarioPasso2 funcionarioPasso2;
     FormHome home;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,6 +71,8 @@ public class FormCliente extends javax.swing.JInternalFrame {
         lblpasso02 = new javax.swing.JLabel();
         pnpasso03 = new javax.swing.JPanel();
         lblpasso03 = new javax.swing.JLabel();
+        pnpasso3 = new javax.swing.JPanel();
+        lblpasso3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         btnAlterarImage = new javax.swing.JPanel();
@@ -141,7 +144,7 @@ public class FormCliente extends javax.swing.JInternalFrame {
 
         jpTitulo.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 220, 60));
 
-        jPanel1.add(jpTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 780, 60));
+        jPanel1.add(jpTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 560, 780, 60));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
         jLabel1.setText("Passo ");
@@ -177,6 +180,17 @@ public class FormCliente extends javax.swing.JInternalFrame {
         pnpasso03.add(lblpasso03, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 25, 25));
 
         jPanel1.add(pnpasso03, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 25, 25));
+
+        pnpasso3.setBackground(new java.awt.Color(109, 127, 145));
+        pnpasso3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblpasso3.setBackground(new java.awt.Color(109, 127, 145));
+        lblpasso3.setForeground(new java.awt.Color(255, 255, 255));
+        lblpasso3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblpasso3.setText("4");
+        pnpasso3.add(lblpasso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 25, 25));
+
+        jPanel1.add(pnpasso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 110, 25, 25));
 
         jPanel2.setBackground(new java.awt.Color(226, 224, 224));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -220,7 +234,7 @@ public class FormCliente extends javax.swing.JInternalFrame {
         lblTituloForm4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         lblTituloForm4.setForeground(new java.awt.Color(255, 255, 255));
         lblTituloForm4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTituloForm4.setText("FORMULARIO DO CLIENTE");
+        lblTituloForm4.setText("FORMULARIO DO FUNCIONARIO");
         jpTitulo1.add(lblTituloForm4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 60));
 
         jPanel1.add(jpTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 780, 60));
@@ -357,20 +371,19 @@ public class FormCliente extends javax.swing.JInternalFrame {
             mensagem = "Nome não pode ser vazio";
             mensagemSucesso = false;
             txtNome.grabFocus();
-           
-            
+
         } else if (txtSobrenome.getText().trim().equals("Sobrenome") || txtSobrenome.getText().trim().isEmpty()) {
 
             mensagem = "Sobrenome não pode ser vazio";
             mensagemSucesso = false;
             txtSobrenome.grabFocus();
-            
+
         } else if (!rbtnFeminino.isSelected() && !rbtnMasculino.isSelected()) {
 
             mensagem = "Sexo deve ser selecionado";
             mensagemSucesso = false;
             rbtnMasculino.grabFocus();
-            
+
         } else if (dtnasc.getDate() == null) {
 
             mensagem = "Data de Nascimento não deve ser vazia";
@@ -382,7 +395,7 @@ public class FormCliente extends javax.swing.JInternalFrame {
             mensagem = "O cliente deve ter mais de 10 anos";
             mensagemSucesso = false;
             dtnasc.grabFocus();
-            
+
         } else {
             mensagem = "";
             lblMensagem.setVisible(false);
@@ -392,11 +405,10 @@ public class FormCliente extends javax.swing.JInternalFrame {
 
         }
 
-      
         if (mensagemSucesso) {
 
-            clientePasso2 = new FormClientePasso2(this.telaPai);
-            this.telaPai.Internal(clientePasso2);
+            funcionarioPasso2 = new FormFuncionarioPasso2(this.telaPai);
+            this.telaPai.Internal(funcionarioPasso2);
 
         } else {
 
@@ -451,7 +463,7 @@ public class FormCliente extends javax.swing.JInternalFrame {
 
     private void btnAlterarImagemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlterarImagemMouseClicked
         // TODO add your handling code here:
-        
+
 //        try {
 //
 //					janela.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -477,8 +489,8 @@ public class FormCliente extends javax.swing.JInternalFrame {
 
     private void btncancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelarMouseClicked
         // TODO add your handling code here:
-        
-          dispose();
+
+        dispose();
 
         home = new FormHome();
         this.telaPai.Internal(home);
@@ -515,9 +527,11 @@ public class FormCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblpasso01;
     private javax.swing.JLabel lblpasso02;
     private javax.swing.JLabel lblpasso03;
+    private javax.swing.JLabel lblpasso3;
     private javax.swing.JPanel pnpasso01;
     private javax.swing.JPanel pnpasso02;
     private javax.swing.JPanel pnpasso03;
+    private javax.swing.JPanel pnpasso3;
     private javax.swing.JRadioButton rbtnFeminino;
     private javax.swing.JRadioButton rbtnMasculino;
     private javax.swing.JTextField txtNome;

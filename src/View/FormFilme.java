@@ -22,7 +22,7 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  *
  * @author John Victor
  */
-public class FormCliente extends javax.swing.JInternalFrame {
+public class FormFilme extends javax.swing.JInternalFrame {
 
     boolean mensagemSucesso = false;
     String mensagem = "";
@@ -32,13 +32,13 @@ public class FormCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form Home
      */
-    public FormCliente(FormMenu telaPai) {
+    public FormFilme(FormMenu telaPai) {
         initComponents();
         this.telaPai = telaPai;
 
-        txtNome.setText("Nome");
-        lblNome.setVisible(false);
-        txtSobrenome.setText("Sobrenome");
+        txtDiretor.setText("Nome");
+        lblDiretor.setVisible(false);
+        txtTitulo.setText("Sobrenome");
         lblSobrenome.setVisible(false);
         campoMensagem.setVisible(false);
         lblMensagem.setVisible(false);
@@ -75,20 +75,20 @@ public class FormCliente extends javax.swing.JInternalFrame {
         btnAlterarImage = new javax.swing.JPanel();
         btnAlterarImagem = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        dtnasc = new com.toedter.calendar.JDateChooser();
+        dtlancamento = new com.toedter.calendar.JDateChooser();
         jSeparator1 = new javax.swing.JSeparator();
         lblDatanasc = new java.awt.Label();
         jpTitulo1 = new javax.swing.JPanel();
         lblTituloForm4 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        txtNome = new javax.swing.JTextField();
-        txtSobrenome = new javax.swing.JTextField();
+        txtDiretor = new javax.swing.JTextField();
+        txtTitulo = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
-        lblSexo = new java.awt.Label();
+        lblStatus = new java.awt.Label();
         jSeparator2 = new javax.swing.JSeparator();
         rbtnMasculino = new javax.swing.JRadioButton();
         rbtnFeminino = new javax.swing.JRadioButton();
-        lblNome = new java.awt.Label();
+        lblDiretor = new java.awt.Label();
         lblSobrenome = new java.awt.Label();
         campoMensagem = new javax.swing.JPanel();
         lblMensagem = new javax.swing.JLabel();
@@ -202,15 +202,15 @@ public class FormCliente extends javax.swing.JInternalFrame {
         jPanel1.add(btnAlterarImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 130, 30));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, -1, -1));
 
-        dtnasc.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(dtnasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 510, 380, 30));
+        dtlancamento.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(dtlancamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 510, 380, 30));
 
         jSeparator1.setForeground(new java.awt.Color(109, 127, 145));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 500, 380, 10));
 
         lblDatanasc.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblDatanasc.setForeground(new java.awt.Color(109, 127, 145));
-        lblDatanasc.setText("Data de Nascimento");
+        lblDatanasc.setText("Data de lançamento");
         jPanel1.add(lblDatanasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(608, 480, 130, -1));
 
         jpTitulo1.setBackground(new java.awt.Color(109, 127, 145));
@@ -220,7 +220,7 @@ public class FormCliente extends javax.swing.JInternalFrame {
         lblTituloForm4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         lblTituloForm4.setForeground(new java.awt.Color(255, 255, 255));
         lblTituloForm4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTituloForm4.setText("FORMULARIO DO CLIENTE");
+        lblTituloForm4.setText("FORMULARIO DO FILME");
         jpTitulo1.add(lblTituloForm4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 60));
 
         jPanel1.add(jpTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 780, 60));
@@ -228,55 +228,55 @@ public class FormCliente extends javax.swing.JInternalFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtNome.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        txtNome.setForeground(new java.awt.Color(109, 127, 145));
-        txtNome.setToolTipText("Nome");
-        txtNome.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtDiretor.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtDiretor.setForeground(new java.awt.Color(109, 127, 145));
+        txtDiretor.setToolTipText("Nome");
+        txtDiretor.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtNomeFocusGained(evt);
+                txtDiretorFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtNomeFocusLost(evt);
+                txtDiretorFocusLost(evt);
             }
         });
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
+        txtDiretor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
+                txtDiretorActionPerformed(evt);
             }
         });
-        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtDiretor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtNomeKeyReleased(evt);
+                txtDiretorKeyReleased(evt);
             }
         });
-        jPanel5.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 40));
+        jPanel5.add(txtDiretor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 40));
 
-        txtSobrenome.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        txtSobrenome.setForeground(new java.awt.Color(109, 127, 145));
-        txtSobrenome.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtTitulo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtTitulo.setForeground(new java.awt.Color(109, 127, 145));
+        txtTitulo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtSobrenomeFocusGained(evt);
+                txtTituloFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtSobrenomeFocusLost(evt);
+                txtTituloFocusLost(evt);
             }
         });
-        txtSobrenome.addActionListener(new java.awt.event.ActionListener() {
+        txtTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSobrenomeActionPerformed(evt);
+                txtTituloActionPerformed(evt);
             }
         });
-        jPanel5.add(txtSobrenome, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 380, 40));
+        jPanel5.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 380, 40));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 780, 40));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblSexo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lblSexo.setForeground(new java.awt.Color(109, 127, 145));
-        lblSexo.setText("Sexo");
-        jPanel6.add(lblSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 20));
+        lblStatus.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblStatus.setForeground(new java.awt.Color(109, 127, 145));
+        lblStatus.setText("Status");
+        jPanel6.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 20));
 
         jSeparator2.setForeground(new java.awt.Color(109, 127, 145));
         jPanel6.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 380, 10));
@@ -285,7 +285,7 @@ public class FormCliente extends javax.swing.JInternalFrame {
         grpSexo.add(rbtnMasculino);
         rbtnMasculino.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         rbtnMasculino.setForeground(new java.awt.Color(109, 127, 145));
-        rbtnMasculino.setText("Masculino");
+        rbtnMasculino.setText("Locado");
         rbtnMasculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtnMasculinoActionPerformed(evt);
@@ -297,19 +297,19 @@ public class FormCliente extends javax.swing.JInternalFrame {
         grpSexo.add(rbtnFeminino);
         rbtnFeminino.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         rbtnFeminino.setForeground(new java.awt.Color(109, 127, 145));
-        rbtnFeminino.setText("Feminino");
+        rbtnFeminino.setText("Disponível");
         jPanel6.add(rbtnFeminino, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 780, 70));
 
-        lblNome.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lblNome.setForeground(new java.awt.Color(109, 127, 145));
-        lblNome.setText("Nome");
-        jPanel1.add(lblNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 40, 20));
+        lblDiretor.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblDiretor.setForeground(new java.awt.Color(109, 127, 145));
+        lblDiretor.setText("Diretor");
+        jPanel1.add(lblDiretor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 40, 20));
 
         lblSobrenome.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblSobrenome.setForeground(new java.awt.Color(109, 127, 145));
-        lblSobrenome.setText("Sobrenome");
+        lblSobrenome.setText("Título");
         jPanel1.add(lblSobrenome, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 400, 80, 20));
 
         campoMensagem.setBackground(new java.awt.Color(255, 204, 204));
@@ -328,13 +328,13 @@ public class FormCliente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSobrenomeActionPerformed
+    private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSobrenomeActionPerformed
+    }//GEN-LAST:event_txtTituloActionPerformed
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+    private void txtDiretorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiretorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
+    }//GEN-LAST:event_txtDiretorActionPerformed
 
     private void rbtnMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnMasculinoActionPerformed
         // TODO add your handling code here:
@@ -352,18 +352,18 @@ public class FormCliente extends javax.swing.JInternalFrame {
         campoMensagem.setVisible(false);
         long anoAtualMenosDezAnos = new Date().getTime() - 315576000000L;
 
-        if (txtNome.getText().trim().equals("Nome") || txtNome.getText().trim().isEmpty()) {
+        if (txtDiretor.getText().trim().equals("Nome") || txtDiretor.getText().trim().isEmpty()) {
 
             mensagem = "Nome não pode ser vazio";
             mensagemSucesso = false;
-            txtNome.grabFocus();
+            txtDiretor.grabFocus();
            
             
-        } else if (txtSobrenome.getText().trim().equals("Sobrenome") || txtSobrenome.getText().trim().isEmpty()) {
+        } else if (txtTitulo.getText().trim().equals("Sobrenome") || txtTitulo.getText().trim().isEmpty()) {
 
             mensagem = "Sobrenome não pode ser vazio";
             mensagemSucesso = false;
-            txtSobrenome.grabFocus();
+            txtTitulo.grabFocus();
             
         } else if (!rbtnFeminino.isSelected() && !rbtnMasculino.isSelected()) {
 
@@ -371,17 +371,17 @@ public class FormCliente extends javax.swing.JInternalFrame {
             mensagemSucesso = false;
             rbtnMasculino.grabFocus();
             
-        } else if (dtnasc.getDate() == null) {
+        } else if (dtlancamento.getDate() == null) {
 
             mensagem = "Data de Nascimento não deve ser vazia";
             mensagemSucesso = false;
-            dtnasc.grabFocus();
+            dtlancamento.grabFocus();
 
-        } else if (dtnasc.getDate().getTime() >= anoAtualMenosDezAnos) {
+        } else if (dtlancamento.getDate().getTime() >= anoAtualMenosDezAnos) {
 
             mensagem = "O cliente deve ter mais de 10 anos";
             mensagemSucesso = false;
-            dtnasc.grabFocus();
+            dtlancamento.grabFocus();
             
         } else {
             mensagem = "";
@@ -408,46 +408,46 @@ public class FormCliente extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnProsseguirMouseClicked
 
-    private void txtNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyReleased
+    private void txtDiretorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiretorKeyReleased
         // TODO add your handling code here:
 
 
-    }//GEN-LAST:event_txtNomeKeyReleased
+    }//GEN-LAST:event_txtDiretorKeyReleased
 
-    private void txtNomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusGained
+    private void txtDiretorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDiretorFocusGained
         // TODO add your handling code here:
-        if (txtNome.getText().equals("Nome")) {
-            txtNome.setText("");
-            lblNome.setVisible(true);
+        if (txtDiretor.getText().equals("Nome")) {
+            txtDiretor.setText("");
+            lblDiretor.setVisible(true);
         }
-    }//GEN-LAST:event_txtNomeFocusGained
+    }//GEN-LAST:event_txtDiretorFocusGained
 
-    private void txtNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusLost
+    private void txtDiretorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDiretorFocusLost
         // TODO add your handling code here:
 
-        if (txtNome.getText().isEmpty()) {
-            txtNome.setText("Nome");
-            lblNome.setVisible(false);
+        if (txtDiretor.getText().isEmpty()) {
+            txtDiretor.setText("Nome");
+            lblDiretor.setVisible(false);
         }
-    }//GEN-LAST:event_txtNomeFocusLost
+    }//GEN-LAST:event_txtDiretorFocusLost
 
-    private void txtSobrenomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSobrenomeFocusGained
+    private void txtTituloFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTituloFocusGained
         // TODO add your handling code here:
-        if (txtSobrenome.getText().equals("Sobrenome")) {
-            txtSobrenome.setText("");
+        if (txtTitulo.getText().equals("Sobrenome")) {
+            txtTitulo.setText("");
             lblSobrenome.setVisible(true);
         }
 
-    }//GEN-LAST:event_txtSobrenomeFocusGained
+    }//GEN-LAST:event_txtTituloFocusGained
 
-    private void txtSobrenomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSobrenomeFocusLost
+    private void txtTituloFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTituloFocusLost
         // TODO add your handling code here:
-        if (txtSobrenome.getText().isEmpty()) {
-            txtSobrenome.setText("Sobrenome");
+        if (txtTitulo.getText().isEmpty()) {
+            txtTitulo.setText("Sobrenome");
             lblSobrenome.setVisible(false);
         }
 
-    }//GEN-LAST:event_txtSobrenomeFocusLost
+    }//GEN-LAST:event_txtTituloFocusLost
 
     private void btnAlterarImagemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlterarImagemMouseClicked
         // TODO add your handling code here:
@@ -491,7 +491,7 @@ public class FormCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel btnProsseguir;
     private javax.swing.JLabel btncancelar;
     private javax.swing.JPanel campoMensagem;
-    private com.toedter.calendar.JDateChooser dtnasc;
+    private com.toedter.calendar.JDateChooser dtlancamento;
     private javax.swing.ButtonGroup grpSexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -507,10 +507,10 @@ public class FormCliente extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jpTitulo;
     private javax.swing.JPanel jpTitulo1;
     private java.awt.Label lblDatanasc;
+    private java.awt.Label lblDiretor;
     private javax.swing.JLabel lblMensagem;
-    private java.awt.Label lblNome;
-    private java.awt.Label lblSexo;
     private java.awt.Label lblSobrenome;
+    private java.awt.Label lblStatus;
     private javax.swing.JLabel lblTituloForm4;
     private javax.swing.JLabel lblpasso01;
     private javax.swing.JLabel lblpasso02;
@@ -520,7 +520,7 @@ public class FormCliente extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnpasso03;
     private javax.swing.JRadioButton rbtnFeminino;
     private javax.swing.JRadioButton rbtnMasculino;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtSobrenome;
+    private javax.swing.JTextField txtDiretor;
+    private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

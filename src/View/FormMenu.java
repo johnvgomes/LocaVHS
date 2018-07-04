@@ -10,8 +10,14 @@ import View.FormHome;
 import View.FormCliente;
 import View.FormClientePasso2;
 import View.FormClientePasso3;
+import View.FormFuncionario;
+import View.FormFuncionarioPasso2;
+import View.FormFuncionarioPasso3;
+import View.FormFuncionarioPasso4;
 import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+
+
 /**
  *
  * @author John Victor
@@ -22,21 +28,32 @@ public class FormMenu extends javax.swing.JFrame {
     FormCliente cliente;
     FormClientePasso2 clientePasso2;
     FormClientePasso3 clientePasso3;
+    FormFuncionario funcionario;
+    FormFuncionarioPasso2 funcionariopasso2;
+    FormFuncionarioPasso3 funcionariopasso3;
+    FormFuncionarioPasso4 funcionarioPasso4;
+    FormAdministrador administrador;
+    FormAdministradorPasso2 administradorpasso2;
+    FormAdministradorPasso3 administradorpasso3;
+    FormAdministradorPasso4 administradorPasso4;
+    FormFilmeCategoria catfilme;
+
     /**
      * Creates new form FormMenu
      */
     public FormMenu() {
         initComponents();
     }
-    
-    public static void Internal(JInternalFrame frame){
+
+    public void Internal(JInternalFrame frame) {
+        areaTrabalhoMenu.removeAll();
         areaTrabalhoMenu.add(frame);
         frame.setLocation(
-                areaTrabalhoMenu.getWidth()/2 - frame.getWidth()/2,
-                areaTrabalhoMenu.getHeight()/2 - frame.getHeight()/2);
+                areaTrabalhoMenu.getWidth() / 2 - frame.getWidth() / 2,
+                areaTrabalhoMenu.getHeight() / 2 - frame.getHeight() / 2);
         frame.pack();
         frame.setVisible(true);
-        ((BasicInternalFrameUI)frame.getUI()).setNorthPane(null);
+        ((BasicInternalFrameUI) frame.getUI()).setNorthPane(null);
     }
 
     /**
@@ -81,6 +98,7 @@ public class FormMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpMENU.setBackground(new java.awt.Color(255, 255, 255));
@@ -93,6 +111,7 @@ public class FormMenu extends javax.swing.JFrame {
         jpMENU.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpnBarMenu.setBackground(new java.awt.Color(0, 0, 0));
+        jpnBarMenu.setToolTipText("LOCAVHS");
         jpnBarMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/149071.png"))); // NOI18N
@@ -174,7 +193,7 @@ public class FormMenu extends javax.swing.JFrame {
         lblCliente.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         lblCliente.setForeground(new java.awt.Color(255, 255, 255));
         lblCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblCliente.setText("Cliente");
+        lblCliente.setText("   Cliente");
         lblCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblClienteMouseClicked(evt);
@@ -186,7 +205,7 @@ public class FormMenu extends javax.swing.JFrame {
                 lblClienteMouseReleased(evt);
             }
         });
-        btnCliente.add(lblCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 240, 60));
+        btnCliente.add(lblCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 60));
 
         jPanel1.add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 260, 60));
 
@@ -202,13 +221,16 @@ public class FormMenu extends javax.swing.JFrame {
         lblfunc.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         lblfunc.setForeground(new java.awt.Color(255, 255, 255));
         lblfunc.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblfunc.setText("Funcionário");
+        lblfunc.setText("   Funcionário");
         lblfunc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblfuncMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblfuncMouseEntered(evt);
             }
         });
-        btnfuncionario.add(lblfunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 240, 60));
+        btnfuncionario.add(lblfunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 60));
 
         jPanel1.add(btnfuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 260, 60));
 
@@ -224,13 +246,16 @@ public class FormMenu extends javax.swing.JFrame {
         lblfilme.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         lblfilme.setForeground(new java.awt.Color(255, 255, 255));
         lblfilme.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblfilme.setText("Filme");
+        lblfilme.setText("   Filme");
         lblfilme.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblfilmeMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblfilmeMouseEntered(evt);
             }
         });
-        btnFilme.add(lblfilme, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 240, 60));
+        btnFilme.add(lblfilme, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 60));
 
         jPanel1.add(btnFilme, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 260, 60));
 
@@ -246,13 +271,13 @@ public class FormMenu extends javax.swing.JFrame {
         lblPromocoes.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         lblPromocoes.setForeground(new java.awt.Color(255, 255, 255));
         lblPromocoes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPromocoes.setText("Promoções");
+        lblPromocoes.setText("   Promoções");
         lblPromocoes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblPromocoesMouseEntered(evt);
             }
         });
-        btnpromocoes.add(lblPromocoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 240, 60));
+        btnpromocoes.add(lblPromocoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 60));
 
         jPanel1.add(btnpromocoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 260, 60));
 
@@ -268,13 +293,16 @@ public class FormMenu extends javax.swing.JFrame {
         lbladministrador.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         lbladministrador.setForeground(new java.awt.Color(255, 255, 255));
         lbladministrador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbladministrador.setText("Administrador");
+        lbladministrador.setText("   Administrador");
         lbladministrador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbladministradorMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lbladministradorMouseEntered(evt);
             }
         });
-        btnAdministrador.add(lbladministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 240, 70));
+        btnAdministrador.add(lbladministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 70));
 
         jPanel1.add(btnAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 260, 70));
 
@@ -303,9 +331,11 @@ public class FormMenu extends javax.swing.JFrame {
         areaTrabalhoMenu.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setToolTipText("LOCAVHS");
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/locavhstransp.png"))); // NOI18N
+        jLabel1.setToolTipText("LOCAVHS");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 990, 520));
 
         jButton1.setBackground(new java.awt.Color(204, 0, 0));
@@ -339,12 +369,12 @@ public class FormMenu extends javax.swing.JFrame {
     private void jpMENUMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpMENUMouseEntered
         // TODO add your handling code here:
 
-        btnCliente.setBackground(new Color(109,127,145));
+        btnCliente.setBackground(new Color(109, 127, 145));
 
-        btnfuncionario.setBackground(new Color(109,127,145));
-        btnFilme.setBackground(new Color(109,127,145));
-        btnAdministrador.setBackground(new Color(109,127,145));
-        btnpromocoes.setBackground(new Color(109,127,145));
+        btnfuncionario.setBackground(new Color(109, 127, 145));
+        btnFilme.setBackground(new Color(109, 127, 145));
+        btnAdministrador.setBackground(new Color(109, 127, 145));
+        btnpromocoes.setBackground(new Color(109, 127, 145));
 
     }//GEN-LAST:event_jpMENUMouseEntered
 
@@ -354,12 +384,12 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void lbladministradorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbladministradorMouseEntered
         // TODO add your handling code here:
-        btnAdministrador.setBackground(new Color(48,59,70));
+        btnAdministrador.setBackground(new Color(48, 59, 70));
 
-        btnCliente.setBackground(new Color(109,127,145));
-        btnfuncionario.setBackground(new Color(109,127,145));
-        btnpromocoes.setBackground(new Color(109,127,145));
-        btnFilme.setBackground(new Color(109,127,145));
+        btnCliente.setBackground(new Color(109, 127, 145));
+        btnfuncionario.setBackground(new Color(109, 127, 145));
+        btnpromocoes.setBackground(new Color(109, 127, 145));
+        btnFilme.setBackground(new Color(109, 127, 145));
 
     }//GEN-LAST:event_lbladministradorMouseEntered
 
@@ -370,12 +400,12 @@ public class FormMenu extends javax.swing.JFrame {
     private void lblPromocoesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPromocoesMouseEntered
         // TODO add your handling code here:
 
-        btnpromocoes.setBackground(new Color(48,59,70));
+        btnpromocoes.setBackground(new Color(48, 59, 70));
 
-        btnCliente.setBackground(new Color(109,127,145));
-        btnfuncionario.setBackground(new Color(109,127,145));
-        btnAdministrador.setBackground(new Color(109,127,145));
-        btnFilme.setBackground(new Color(109,127,145));
+        btnCliente.setBackground(new Color(109, 127, 145));
+        btnfuncionario.setBackground(new Color(109, 127, 145));
+        btnAdministrador.setBackground(new Color(109, 127, 145));
+        btnFilme.setBackground(new Color(109, 127, 145));
 
     }//GEN-LAST:event_lblPromocoesMouseEntered
 
@@ -386,12 +416,12 @@ public class FormMenu extends javax.swing.JFrame {
     private void lblfilmeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblfilmeMouseEntered
         // TODO add your handling code here:
 
-        btnFilme.setBackground(new Color(48,59,70));
+        btnFilme.setBackground(new Color(48, 59, 70));
 
-        btnCliente.setBackground(new Color(109,127,145));
-        btnfuncionario.setBackground(new Color(109,127,145));
-        btnAdministrador.setBackground(new Color(109,127,145));
-        btnpromocoes.setBackground(new Color(109,127,145));
+        btnCliente.setBackground(new Color(109, 127, 145));
+        btnfuncionario.setBackground(new Color(109, 127, 145));
+        btnAdministrador.setBackground(new Color(109, 127, 145));
+        btnpromocoes.setBackground(new Color(109, 127, 145));
 
     }//GEN-LAST:event_lblfilmeMouseEntered
 
@@ -401,18 +431,18 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void lblfuncMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblfuncMouseEntered
         // TODO add your handling code here:
-        btnfuncionario.setBackground(new Color(48,59,70));
+        btnfuncionario.setBackground(new Color(48, 59, 70));
 
-        btnCliente.setBackground(new Color(109,127,145));
-        btnFilme.setBackground(new Color(109,127,145));
-        btnAdministrador.setBackground(new Color(109,127,145));
-        btnpromocoes.setBackground(new Color(109,127,145));
+        btnCliente.setBackground(new Color(109, 127, 145));
+        btnFilme.setBackground(new Color(109, 127, 145));
+        btnAdministrador.setBackground(new Color(109, 127, 145));
+        btnpromocoes.setBackground(new Color(109, 127, 145));
 
     }//GEN-LAST:event_lblfuncMouseEntered
 
     private void btnClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClienteMouseClicked
         // TODO add your handling code here:
-         
+
     }//GEN-LAST:event_btnClienteMouseClicked
 
     private void lblClienteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClienteMouseReleased
@@ -422,12 +452,12 @@ public class FormMenu extends javax.swing.JFrame {
     private void lblClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClienteMouseEntered
         // TODO add your handling code here:
 
-        btnCliente.setBackground(new Color(48,59,70));
+        btnCliente.setBackground(new Color(48, 59, 70));
 
-        btnfuncionario.setBackground(new Color(109,127,145));
-        btnFilme.setBackground(new Color(109,127,145));
-        btnAdministrador.setBackground(new Color(109,127,145));
-        btnpromocoes.setBackground(new Color(109,127,145));
+        btnfuncionario.setBackground(new Color(109, 127, 145));
+        btnFilme.setBackground(new Color(109, 127, 145));
+        btnAdministrador.setBackground(new Color(109, 127, 145));
+        btnpromocoes.setBackground(new Color(109, 127, 145));
 
     }//GEN-LAST:event_lblClienteMouseEntered
 
@@ -438,13 +468,13 @@ public class FormMenu extends javax.swing.JFrame {
     private void lblfunc11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblfunc11MouseEntered
         // TODO add your handling code here:
 
-        btnCliente.setBackground(new Color(109,127,145));
+        btnCliente.setBackground(new Color(109, 127, 145));
 
-        btnfuncionario.setBackground(new Color(109,127,145));
-        btnFilme.setBackground(new Color(109,127,145));
-        btnAdministrador.setBackground(new Color(109,127,145));
-        btnpromocoes.setBackground(new Color(109,127,145));
-        
+        btnfuncionario.setBackground(new Color(109, 127, 145));
+        btnFilme.setBackground(new Color(109, 127, 145));
+        btnAdministrador.setBackground(new Color(109, 127, 145));
+        btnpromocoes.setBackground(new Color(109, 127, 145));
+
 
     }//GEN-LAST:event_lblfunc11MouseEntered
 
@@ -458,7 +488,7 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void lblHOMEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHOMEMouseClicked
         // TODO add your handling code here:
-        
+
         home = new FormHome();
         Internal(home);
     }//GEN-LAST:event_lblHOMEMouseClicked
@@ -471,12 +501,39 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void lblClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClienteMouseClicked
         // TODO add your handling code here:
+   //     clientePasso3 = new FormClientePasso3();
+     //   this.Internal(clientePasso3);
+
         cliente = new FormCliente(this);
+       
         this.Internal(cliente);
-        
     }//GEN-LAST:event_lblClienteMouseClicked
 
-           
+    private void lblfuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblfuncMouseClicked
+        // TODO add your handling code here:
+        funcionario = new FormFuncionario(this);
+        this.Internal(funcionario);
+        
+        //funcionarioPasso4 = new FormFuncionarioPasso4();
+        //this.Internal(funcionarioPasso4);
+        
+    }//GEN-LAST:event_lblfuncMouseClicked
+
+    private void lbladministradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbladministradorMouseClicked
+        // TODO add your handling code here:
+        
+        administrador = new FormAdministrador(this);
+        this.Internal( administrador );
+    }//GEN-LAST:event_lbladministradorMouseClicked
+
+    private void lblfilmeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblfilmeMouseClicked
+        // TODO add your handling code here:
+        
+        catfilme = new FormFilmeCategoria(this);
+        this.Internal( catfilme );
+        
+    }//GEN-LAST:event_lblfilmeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -511,7 +568,7 @@ public class FormMenu extends javax.swing.JFrame {
                 fm.setLocationRelativeTo(null);
                 fm.pack();
                 fm.setVisible(true);
-               
+
             }
         });
     }
